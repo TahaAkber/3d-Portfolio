@@ -1,8 +1,20 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen } from "@testing-library/react";
+import App from "./App";
 
-test('renders learn react link', () => {
+jest.mock("./components/PortfolioScene", () => () => (
+  <div data-testid="portfolio-scene" />
+));
+jest.mock("./components/AmbientBackground", () => () => (
+  <div data-testid="ambient-background" />
+));
+
+test("renders portfolio heading", () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const headingElement = screen.getByRole("heading", {
+    level: 1,
+    name: /Taha Akber/i,
+  });
+  expect(headingElement).toBeInTheDocument();
+  expect(screen.getByTestId("portfolio-scene")).toBeInTheDocument();
+  expect(screen.getByTestId("ambient-background")).toBeInTheDocument();
 });
