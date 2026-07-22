@@ -3,6 +3,7 @@ export interface Project {
   description: string;
   tech: string[];
   category: string;
+  image?: string;
   links?: { label: string; url: string }[];
 }
 
@@ -18,6 +19,8 @@ export interface PortfolioData {
   email: string;
   phone: string;
   location: string;
+  github: string;
+  linkedin: string;
   skills: SkillGroup[];
   projects: Project[];
   experience: ExperienceEntry[];
@@ -32,6 +35,8 @@ export const portfolioData: PortfolioData = {
   email: "taha.akber007@gmail.com",
   phone: "+92 346 2999417",
   location: "Karachi, Pakistan",
+  github: "https://github.com/TahaAkber",
+  linkedin: "https://www.linkedin.com/in/taha-akber-006829266/",
   skills: [
     { category: "Frontend", items: ["React", "Next.js", "Remix", "TypeScript", "Tailwind CSS", "Accessibility"] },
     { category: "Backend & Data", items: ["Node.js", "REST APIs", "GraphQL", "PostgreSQL", "MongoDB", "Redis"] },
@@ -39,6 +44,38 @@ export const portfolioData: PortfolioData = {
     { category: "Engineering", items: ["Docker", "Microservices", "Authentication", "SSR / SSG", "Git", "API Integration"] },
   ],
   projects: [
+    {
+      name: "GitHub Automation",
+      category: "Developer Automation",
+      description: "An automation-focused toolkit that streamlines repetitive GitHub workflows and makes repository management faster and more consistent.",
+      tech: ["GitHub API", "Automation", "Developer Tools"],
+      image: "/projects/github-automation.svg",
+      links: [{ label: "GitHub", url: "https://github.com/TahaAkber" }],
+    },
+    {
+      name: "Automatic GitHub Repository Backup",
+      category: "Python · Automation",
+      description: "A Python bot that regularly downloads configured GitHub repositories as ZIP archives and stores dependable local backups.",
+      tech: ["Python", "GitHub API", "JSON", "Automation"],
+      image: "/projects/github-backup.svg",
+      links: [{ label: "Source Code", url: "https://github.com/TahaAkber/Automatic-Github-Repository-Backup" }],
+    },
+    {
+      name: "TV App",
+      category: "Entertainment · Application",
+      description: "A modern television experience built around clear content discovery, accessible navigation, and a polished viewing interface.",
+      tech: ["JavaScript", "React", "REST APIs"],
+      image: "/projects/tv-app.svg",
+      links: [{ label: "GitHub", url: "https://github.com/TahaAkber" }],
+    },
+    {
+      name: "Dev Tools",
+      category: "Developer Experience",
+      description: "A practical collection of utilities designed to simplify everyday development tasks and improve engineering productivity.",
+      tech: ["Developer Tools", "JavaScript", "Automation"],
+      image: "/projects/dev-tools.svg",
+      links: [{ label: "GitHub", url: "https://github.com/TahaAkber" }],
+    },
     {
       name: "Cercle Commerce Ecosystem",
       category: "Flagship Product",

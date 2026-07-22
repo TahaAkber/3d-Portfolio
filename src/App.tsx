@@ -71,6 +71,12 @@ const App: React.FC = () => {
             <a className="action-button secondary" href="#contact">
               Contact Me
             </a>
+            <a className="action-button social" href={portfolio?.github} target="_blank" rel="noreferrer">
+              GitHub ↗
+            </a>
+            <a className="action-button social" href={portfolio?.linkedin} target="_blank" rel="noreferrer">
+              LinkedIn ↗
+            </a>
           </div>
           <div className="hero-footnote">
             <span>Based in {portfolio?.location ?? "Remote / Worldwide"}</span>
@@ -156,6 +162,20 @@ const App: React.FC = () => {
           {projectCards.length > 0 ? (
             projectCards.map((project: Project) => (
               <article key={project.name} className="project-card">
+                <div className={`project-image-wrap${project.image ? "" : " placeholder"}`}>
+                  <img
+                    className="project-image"
+                    src={project.image ?? "/projects/project-placeholder.svg"}
+                    alt={project.image ? `${project.name} project preview` : ""}
+                    loading="lazy"
+                  />
+                  {!project.image && (
+                    <span className="project-image-label" aria-hidden="true">
+                      {project.name}
+                    </span>
+                  )}
+                </div>
+                <div className="project-card-body">
                 <div className="project-card-top">
                   <span>{project.category}</span>
                   {project.links?.length ? (
@@ -186,6 +206,7 @@ const App: React.FC = () => {
                       {tech}
                     </span>
                   ))}
+                </div>
                 </div>
               </article>
             ))
@@ -296,6 +317,14 @@ const App: React.FC = () => {
             <h2>{portfolio?.name ?? "Taha Akber"}</h2>
             <span>{portfolio?.title ?? "Software Engineer"}</span>
           </div>
+          <div className="contact-card social-card">
+            <h4>Find me online</h4>
+            <p>Explore my code and connect with me professionally.</p>
+            <div className="social-links">
+              <a href={portfolio?.github} target="_blank" rel="noreferrer">GitHub ↗</a>
+              <a href={portfolio?.linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a>
+            </div>
+          </div>
         </div>
         <div className="footer-details">
           <div>
@@ -313,6 +342,10 @@ const App: React.FC = () => {
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} {portfolio?.name ?? "Taha Akber"}</span>
           <span>Built with React, TypeScript &amp; Three.js</span>
+          <span className="footer-socials">
+            <a href={portfolio?.github} target="_blank" rel="noreferrer">GitHub</a>
+            <a href={portfolio?.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+          </span>
         </div>
       </footer>
     </div>
